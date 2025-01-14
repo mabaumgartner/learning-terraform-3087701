@@ -57,7 +57,7 @@ module "alb" {
   load_balancer_type = "application"
 
   listeners = [
-    ex-http-https-redirect = {
+    {
       port     = 80
       protocol = "HTTP"
     }
