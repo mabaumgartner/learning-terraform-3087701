@@ -56,14 +56,14 @@ module "alb" {
 
   load_balancer_type = "application"
 
-  listeners = {
+  listeners = [
     ex-http-https-redirect = {
       port     = 80
       protocol = "HTTP"
     }
-  }
+  ]
 
-  target_groups = {
+  target_groups = [
     ex-instance = {
       name_prefix      = "blog-"
       protocol         = "HTTP"
@@ -71,7 +71,7 @@ module "alb" {
       target_type      = "instance"
       target_id        = aws_instance.blog.id
     }
-  }
+  ]
 
   tags = {
     Environment = "Dev"
